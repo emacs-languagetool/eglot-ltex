@@ -3,7 +3,7 @@
 
 # eglot-ltex
 
-`eglot` client leveraging [LTEX](https://github.com/valentjn/ltex-ls).
+`eglot` client leveraging [LTEX Language Server](https://github.com/valentjn/ltex-ls).
 
 ## Contribution
 
