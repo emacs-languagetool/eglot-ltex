@@ -5,6 +5,39 @@
 
 `eglot` client leveraging [LTEX Language Server](https://github.com/valentjn/ltex-ls).
 
+## :floppy_disk: Quickstart
+
+### :mag: Step 1. Install `LTEX` language server through LTEX's homepage
+> Link https://github.com/valentjn/ltex-ls
+
+Extract the `.tar.gz` file to any location you want.
+
+### :mag: Step 2.
+
+Consider adding this to your configuration.
+
+```el
+(use-package eglot-ltex
+  :ensure t
+  :hook (text-mode . (lambda ()
+                       (require 'eglot-ltex)
+                       (call-interactively #'eglot)))
+  :init
+  (setq eglot-languagetool-server-path "path/to/ltex-ls-XX.X.X/"))
+```
+
+## :wrench: Configuration
+
+Create `.dir-locals.el` file in the the project root directory.
+
+```el
+((nil
+  (eglot-workspace-configuration
+   . ((ltex-ls . ((language . "en-US")))))))
+```
+
+*P.S. See all possible configuration [here](https://valentjn.github.io/vscode-ltex/docs/settings.html).*
+
 ## Contribution
 
 If you would like to contribute to this project, you may either
