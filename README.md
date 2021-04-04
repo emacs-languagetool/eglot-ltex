@@ -12,7 +12,7 @@
 
 Extract the `.tar.gz` file to any location you want.
 
-### :mag: Step 2. Add configuration
+### :mag: Step 2. Configure your Emacs configuration
 
 Consider adding this to your configuration.
 
