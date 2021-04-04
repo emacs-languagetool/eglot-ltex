@@ -42,6 +42,30 @@ https://github.com/valentjn/ltex-ls"
   :group 'eglot
   :link '(url-link :tag "Github" "https://github.com/emacs-languagetool/eglot-ltex"))
 
+(defcustom eglot-languagetool-active-modes '(text-mode latex-mode org-mode markdown-mode)
+  "List of major mode that work with LanguageTool."
+  :type 'list
+  :group 'eglot-grammarly)
+
+(defcustom eglot-languagetool-server-path ""
+  "The root path of the LTEX language server's folder."
+  :type 'string
+  :group 'eglot)
+
+(defun eglot-ltex--server-entry ()
+  "Return the server entry file.
+
+This file is use to activate the language server."
+  (f-join eglot-languagetool-server-path "bin" (if (eq system-type 'windows-nt)
+                                                   "ltex-ls.bat"
+                                                 "ltex-ls")))
+
+(defun eglot-languagetool--server-command ()
+  "Generate startup command for LTEX language server."
+  (list (eglot-ltex--server-entry)))
+
+(add-to-list 'eglot-server-programs
+             `(,eglot-languagetool-active-modes . ,(eglot-languagetool--server-command)))
 
 (provide 'eglot-ltex)
 ;;; eglot-ltex.el ends here
