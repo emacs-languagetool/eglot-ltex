@@ -12,7 +12,7 @@
 
 Extract the `.tar.gz` file to any location you want.
 
-### :mag: Step 2.
+### :mag: Step 2. Add configuration
 
 Consider adding this to your configuration.
 
