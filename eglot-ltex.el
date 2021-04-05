@@ -1,10 +1,10 @@
-;;; eglot-ltex.el --- Eglot Clients for LanguageTool  -*- lexical-binding: t; -*-
+;;; eglot-ltex.el --- Eglot Clients for LTEX  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2021  Shen, Jen-Chieh
 ;; Created date 2021-04-03 00:40:51
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; Description: Eglot Clients for LanguageTool.
+;; Description: Eglot Clients for LTEX.
 ;; Keyword: eglot languagetool checker
 ;; Version: 0.1.0
 ;; Package-Requires: ((emacs "24.3") (eglot "1.4"))
@@ -27,7 +27,7 @@
 
 ;;; Commentary:
 ;;
-;;
+;; Eglot Clients for LTEX.
 ;;
 
 ;;; Code:
