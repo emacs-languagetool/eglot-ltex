@@ -7,7 +7,7 @@
 ;; Description: Eglot Clients for LTEX.
 ;; Keyword: eglot languagetool checker
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "24.3") (eglot "1.4"))
+;; Package-Requires: ((emacs "24.3") (eglot "1.4") (f "0.20.0"))
 ;; URL: https://github.com/emacs-languagetool/eglot-ltex
 
 ;; This file is NOT part of GNU Emacs.
@@ -33,6 +33,7 @@
 ;;; Code:
 
 (require 'eglot)
+(require 'f)
 
 (defgroup eglot-ltex nil
   "Settings for the LTEX Language Server.
