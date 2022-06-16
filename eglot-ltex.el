@@ -4,11 +4,10 @@
 ;; Created date 2021-04-03 00:40:51
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; Description: Eglot Clients for LTEX.
-;; Keyword: eglot languagetool checker
+;; URL: https://github.com/emacs-languagetool/eglot-ltex
 ;; Version: 0.1.0
 ;; Package-Requires: ((emacs "24.3") (eglot "1.4") (f "0.20.0"))
-;; URL: https://github.com/emacs-languagetool/eglot-ltex
+;; Keywords: eglot languagetool checker
 
 ;; This file is NOT part of GNU Emacs.
 
