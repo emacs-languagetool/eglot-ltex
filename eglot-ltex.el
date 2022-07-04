@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emacs-languagetool/eglot-ltex
 ;; Version: 0.1.0
 ;; Package-Requires: ((emacs "24.3") (eglot "1.4") (f "0.20.0"))
-;; Keywords: eglot languagetool checker
+;; Keywords: convenience eglot languagetool checker
 
 ;; This file is NOT part of GNU Emacs.
 
