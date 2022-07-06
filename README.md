@@ -1,4 +1,5 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/badges/master/elpa/v/eglot-ltex.svg)](https://jcs-emacs.github.io/jcs-elpa/#/eglot-ltex)
 
 <img align="right" src="./etc/logo.png" with="115" height="55">
 
