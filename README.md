@@ -25,7 +25,7 @@ Consider adding this to your configuration.
   :ensure t
   :hook (text-mode . (lambda ()
                        (require 'eglot-ltex)
-                       (call-interactively #'eglot)))
+                       (eglot-ensure)))
   :init
   (setq eglot-languagetool-server-path "path/to/ltex-ls-XX.X.X/"))
 ```
