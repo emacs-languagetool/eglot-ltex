@@ -7,7 +7,7 @@
 
 [![CI](https://github.com/emacs-languagetool/eglot-ltex/actions/workflows/test.yml/badge.svg)](https://github.com/emacs-languagetool/eglot-ltex/actions/workflows/test.yml)
 
-`eglot` client leveraging [LTEX Language Server](https://github.com/valentjn/ltex-ls).
+`Eglot` client leveraging [LTEX Language Server](https://github.com/valentjn/ltex-ls).
 
 ## :floppy_disk: Quickstart
 
@@ -32,15 +32,16 @@ Consider adding this to your configuration.
 
 ## :wrench: Configuration
 
-Create `.dir-locals.el` file in the the project root directory.
+Create `.dir-locals.el` file in the project root directory to configure the ltex language server, for example:
 
 ```el
-((nil
-  (eglot-workspace-configuration
-   . ((ltex-ls . ((language . "en-US")))))))
+((nil .
+  ((eglot-workspace-configuration
+    . (:ltex-ls  (:language  "en-US"
+                  :additionalRules (:motherTongue "de-DE")))))))
 ```
 
-*P.S. See all possible configuration [here](https://valentjn.github.io/vscode-ltex/docs/settings.html).*
+You can find all possible ltex configuration options [here](https://valentjn.github.io/vscode-ltex/docs/settings.html). See the [Eglot manual](https://joaotavora.github.io/eglot/#JSONRPC-objects-in-Elisp) on how to translate the LSP options into the property-list format that Eglot requires.
 
 ## Contribute
 
