@@ -32,7 +32,8 @@ Consider adding this to your configuration.
 
 ## :wrench: Configuration
 
-Create `.dir-locals.el` file in the project root directory to configure the ltex language server, for example:
+Create `.dir-locals.el` file in the project root directory to configure the ltex
+language server, for example:
 
 ```el
 ((nil .
@@ -41,7 +42,11 @@ Create `.dir-locals.el` file in the project root directory to configure the ltex
                   :additionalRules (:motherTongue "de-DE")))))))
 ```
 
-You can find all possible ltex configuration options [here](https://valentjn.github.io/vscode-ltex/docs/settings.html). See the [Eglot manual](https://joaotavora.github.io/eglot/#JSONRPC-objects-in-Elisp) on how to translate the LSP options into the property-list format that Eglot requires.
+You can find all possible ltex configuration options
+[here](https://valentjn.github.io/vscode-ltex/docs/settings.html). See the
+[Eglot manual](https://joaotavora.github.io/eglot/#JSONRPC-objects-in-Elisp) on
+how to translate the LSP options into the property-list format that Eglot
+requires.
 
 ## Contribute
 
