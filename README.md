@@ -4,19 +4,20 @@
 <img align="right" src="./etc/logo.png" with="115" height="55">
 
 # eglot-ltex
+> Eglot Clients for LTEX
 
 [![CI](https://github.com/emacs-languagetool/eglot-ltex/actions/workflows/test.yml/badge.svg)](https://github.com/emacs-languagetool/eglot-ltex/actions/workflows/test.yml)
 
 `Eglot` client leveraging [LTEX Language Server](https://github.com/valentjn/ltex-ls).
 
-## :floppy_disk: Quickstart
+## 💾 Quickstart
 
-### :mag: Step 1. Install `LTEX` language server through LTEX's homepage
+### 🔍 Step 1. Install `LTEX` language server through LTEX's homepage
 > Link https://github.com/valentjn/ltex-ls
 
 Extract the `.tar.gz` file to any location you want.
 
-### :mag: Step 2. Configure your Emacs configuration
+### 🔍 Step 2. Configure your Emacs configuration
 
 Consider adding this to your configuration.
 
@@ -30,7 +31,7 @@ Consider adding this to your configuration.
   (setq eglot-languagetool-server-path "path/to/ltex-ls-XX.X.X/"))
 ```
 
-## :wrench: Configuration
+## 🔧 Configuration
 
 Create `.dir-locals.el` file in the project root directory to configure the ltex
 language server, for example:
