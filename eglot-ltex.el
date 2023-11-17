@@ -43,10 +43,22 @@ https://github.com/valentjn/ltex-ls"
   :link '(url-link :tag "Github" "https://github.com/emacs-languagetool/eglot-ltex"))
 
 (defcustom eglot-languagetool-active-modes
-  '( text-mode
-     bibtex-mode context-mode latex-mode
-     markdown-mode org-mode
-     rst-mode)
+  ;; Language ids can be found here:
+  ;; https://github.com/valentjn/ltex-ls/blob/7c031d792110a824951aa003acd3ada158a515b4/src/main/kotlin/org/bsplines/ltexls/parsing/CodeFragmentizer.kt#L46
+  '((org-mode :language-id "org")
+    ;; Hack for version >=16 of ltex-ls with git commit support. For
+    ;; earlier versions it should just fall back to plaintext. This
+    ;; requires setting git-commit-major-mode to
+    ;; 'git-commit-elisp-text-mode. This is a hack because
+    ;; git-commit-elisp-text-mode isn't a general purpose git commit
+    ;; major mode, but it does the job
+    (git-commit-elisp-text-mode :language-id "gitcommit")
+    (bibtex-mode :language-id "bibtex")
+    (context-mode :language-id "context")
+    (latex-mode :language-id "latex")
+    (markdown-mode :language-id "markdown")
+    (rst-mode :language-id "restructuredtext")
+    (text-mode :language-id "plaintext"))
   "List of major mode that work with LanguageTool."
   :type 'list
   :group 'eglot-grammarly)
