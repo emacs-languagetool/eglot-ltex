@@ -42,7 +42,7 @@ https://github.com/valentjn/ltex-ls"
   :group 'eglot
   :link '(url-link :tag "Github" "https://github.com/emacs-languagetool/eglot-ltex"))
 
-(defcustom eglot-languagetool-active-modes
+(defcustom eglot-ltex-active-modes
   ;; Language ids can be found here:
   ;; https://github.com/valentjn/ltex-ls/blob/7c031d792110a824951aa003acd3ada158a515b4/src/main/kotlin/org/bsplines/ltexls/parsing/CodeFragmentizer.kt#L46
   '((org-mode :language-id "org")
@@ -61,27 +61,27 @@ https://github.com/valentjn/ltex-ls"
     (text-mode :language-id "plaintext"))
   "List of major mode that work with LanguageTool."
   :type 'list
-  :group 'eglot-grammarly)
+  :group 'eglot-ltex)
 
-(defcustom eglot-languagetool-server-path ""
+(defcustom eglot-ltex-server-path ""
   "The root path of the LTEX language server's folder."
   :type 'string
-  :group 'eglot)
+  :group 'eglot-ltex)
 
 (defun eglot-ltex--server-entry ()
   "Return the server entry file.
 
 This file is use to activate the language server."
-  (f-join eglot-languagetool-server-path "bin" (if (eq system-type 'windows-nt)
-                                                   "ltex-ls.bat"
-                                                 "ltex-ls")))
+  (f-join eglot-ltex-server-path "bin" (if (eq system-type 'windows-nt)
+                                           "ltex-ls.bat"
+                                         "ltex-ls")))
 
-(defun eglot-languagetool--server-command ()
+(defun eglot-ltex--server-command ()
   "Generate startup command for LTEX language server."
   (list (eglot-ltex--server-entry)))
 
 (add-to-list 'eglot-server-programs
-             `(,eglot-languagetool-active-modes . ,(eglot-languagetool--server-command)))
+             `(,eglot-ltex-active-modes . ,(eglot-ltex--server-command)))
 
 (provide 'eglot-ltex)
 ;;; eglot-ltex.el ends here

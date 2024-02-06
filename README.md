@@ -28,7 +28,7 @@ Consider adding this to your configuration.
                        (require 'eglot-ltex)
                        (eglot-ensure)))
   :init
-  (setq eglot-languagetool-server-path "path/to/ltex-ls-XX.X.X/"))
+  (setq eglot-ltex-server-path "path/to/ltex-ls-XX.X.X/"))
 ```
 
 ## 🔧 Configuration
