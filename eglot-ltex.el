@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+(require 'cl-lib)
+
 (require 'eglot)
 (require 'f)
 
@@ -68,6 +70,12 @@ https://github.com/valentjn/ltex-ls"
   :type 'string
   :group 'eglot-ltex)
 
+(defcustom eglot-ltex-communication-channel 'stdio
+  "Type of the communication channel."
+  :type '(choice (const :tag "Standard IO" stdio)
+                 (const :tag "TCP/socket" tcp))
+  :group 'eglot-ltex)
+
 (defun eglot-ltex--server-entry ()
   "Return the server entry file.
 
@@ -78,7 +86,10 @@ This file is use to activate the language server."
 
 (defun eglot-ltex--server-command ()
   "Generate startup command for LTEX language server."
-  (list (eglot-ltex--server-entry) "--server-type" "TcpSocket" "--port" :autoport))
+  (cl-case eglot-ltex-communication-channel
+    (`stdio `(,(eglot-ltex--server-entry)))
+    (`tcp `(,(eglot-ltex--server-entry) "--server-type" "TcpSocket" "--port" :autoport))
+    (t (user-error "Invalid communication channel type: %s" eglot-ltex-communication-channel))))
 
 (add-to-list 'eglot-server-programs
              `(,eglot-ltex-active-modes . ,(eglot-ltex--server-command)))
