@@ -28,7 +28,8 @@ Consider adding this to your configuration.
                        (require 'eglot-ltex)
                        (eglot-ensure)))
   :init
-  (setq eglot-ltex-server-path "path/to/ltex-ls-XX.X.X/"))
+  (setq eglot-ltex-server-path "path/to/ltex-ls-XX.X.X/"
+        eglot-ltex-communication-channel 'stdio))         ; 'stdio or 'tcp
 ```
 
 ## 🔧 Configuration
@@ -118,4 +119,4 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-See [`LICENSE`](./LICENSE.txt) for details.
+See [`LICENSE`](./LICENSE) for details.
