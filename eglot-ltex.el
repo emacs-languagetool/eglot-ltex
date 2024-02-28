@@ -78,7 +78,7 @@ This file is use to activate the language server."
 
 (defun eglot-ltex--server-command ()
   "Generate startup command for LTEX language server."
-  (list (eglot-ltex--server-entry)))
+  (list (eglot-ltex--server-entry) "--server-type" "TcpSocket" "--port" :autoport))
 
 (add-to-list 'eglot-server-programs
              `(,eglot-ltex-active-modes . ,(eglot-ltex--server-command)))
