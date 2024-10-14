@@ -58,6 +58,7 @@ https://github.com/valentjn/ltex-ls"
     (bibtex-mode :language-id "bibtex")
     (context-mode :language-id "context")
     (latex-mode :language-id "latex")
+    (LaTeX-mode :language-id "latex") ;; AUCTeX
     (markdown-mode :language-id "markdown")
     (rst-mode :language-id "restructuredtext")
     (text-mode :language-id "plaintext"))
@@ -66,7 +67,7 @@ https://github.com/valentjn/ltex-ls"
   :group 'eglot-ltex)
 
 (defcustom eglot-ltex-server-path ""
-  "The root path of the LTEX language server's folder."
+  "The root path of the LTEX language server's folder, or path to the executable."
   :type 'string
   :group 'eglot-ltex)
 
@@ -80,19 +81,23 @@ https://github.com/valentjn/ltex-ls"
   "Return the server entry file.
 
 This file is use to activate the language server."
-  (f-join eglot-ltex-server-path "bin" (if (eq system-type 'windows-nt)
-                                           "ltex-ls.bat"
-                                         "ltex-ls")))
+  (let ((program-basename (if (eq system-type 'windows-nt)
+                               "ltex-ls.bat"
+                            "ltex-ls")))
+    (pcase eglot-ltex-server-path
+      ((pred f-file?) eglot-ltex-server-path)
+      ((pred f-dir?) (f-join eglot-ltex-server-path "bin" program-basename))
+      ("" (executable-find program-basename))
+      (_ (user-error "eglot-ltex-server-path is invalid or points to a nonexistant file: " eglot-ltex-server-path)))))
 
-(defun eglot-ltex--server-command ()
-  "Generate startup command for LTEX language server."
-  (cl-case eglot-ltex-communication-channel
-    (`stdio `(,(eglot-ltex--server-entry)))
-    (`tcp `(,(eglot-ltex--server-entry) "--server-type" "TcpSocket" "--port" :autoport))
-    (t (user-error "Invalid communication channel type: %s" eglot-ltex-communication-channel))))
+(defun eglot-ltex--server-program (interactive project)
+  (pcase eglot-ltex-communication-channel
+    ('stdio `(,(eglot-ltex--server-entry)))
+    ('tcp `(,(eglot-ltex--server-entry) "--server-type" "TcpSocket" "--port" :autoport))
+    (_ (user-error "Invalid communication channel type: %s" eglot-ltex-communication-channel))))
 
 (add-to-list 'eglot-server-programs
-             `(,eglot-ltex-active-modes . ,(eglot-ltex--server-command)))
+             `(,eglot-ltex-active-modes . eglot-ltex--server-program))
 
 (provide 'eglot-ltex)
 ;;; eglot-ltex.el ends here
