@@ -90,7 +90,7 @@ This file is use to activate the language server."
       ("" (executable-find program-basename))
       (_ (user-error "eglot-ltex-server-path is invalid or points to a nonexistant file: " eglot-ltex-server-path)))))
 
-(defun eglot-ltex--server-program (interactive project)
+(defun eglot-ltex--server-program (_interactive _project)
   (pcase eglot-ltex-communication-channel
     ('stdio `(,(eglot-ltex--server-entry)))
     ('tcp `(,(eglot-ltex--server-entry) "--server-type" "TcpSocket" "--port" :autoport))
