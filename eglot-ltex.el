@@ -81,9 +81,13 @@ https://github.com/valentjn/ltex-ls"
   "Return the server entry file.
 
 This file is use to activate the language server."
-  (let ((program-basename (if (eq system-type 'windows-nt)
-                               "ltex-ls.bat"
-                            "ltex-ls")))
+  (let* (
+         (ltex-name (if (string-match "ltex-ls-plus" eglot-ltex-server-path)
+                        "ltex-ls-plus"
+                      "ltex-ls"))
+         (program-basename (if (eq system-type 'windows-nt)
+                               (concat ltex-name ".bat")
+                            ltex-name)))
     (pcase eglot-ltex-server-path
       ((pred f-file?) eglot-ltex-server-path)
       ((pred f-dir?) (f-join eglot-ltex-server-path "bin" program-basename))
