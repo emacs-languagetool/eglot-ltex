@@ -63,7 +63,7 @@ https://github.com/valentjn/ltex-ls"
     (rst-mode :language-id "restructuredtext")
     (text-mode :language-id "plaintext"))
   "List of major mode that work with LanguageTool."
-  :type '(list )
+  :type '(list symbol)
   :group 'eglot-ltex)
 
 (defcustom eglot-ltex-server-path ""
@@ -82,13 +82,13 @@ https://github.com/valentjn/ltex-ls"
 
 This file is use to activate the language server."
   (let ((program-basename (if (eq system-type 'windows-nt)
-                               "ltex-ls.bat"
+                              "ltex-ls.bat"
                             "ltex-ls")))
     (pcase eglot-ltex-server-path
       ((pred f-file?) eglot-ltex-server-path)
       ((pred f-dir?) (f-join eglot-ltex-server-path "bin" program-basename))
       ("" (executable-find program-basename))
-      (_ (user-error "eglot-ltex-server-path is invalid or points to a nonexistant file: " eglot-ltex-server-path)))))
+      (_ (user-error "eglot-ltex-server-path is invalid or points to a nonexistant file: %s" eglot-ltex-server-path)))))
 
 (defun eglot-ltex--server-program (_interactive _project)
   (pcase eglot-ltex-communication-channel
