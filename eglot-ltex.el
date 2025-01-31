@@ -63,7 +63,7 @@ https://github.com/valentjn/ltex-ls"
     (rst-mode :language-id "restructuredtext")
     (text-mode :language-id "plaintext"))
   "List of major mode that work with LanguageTool."
-  :type 'list
+  :type '(list )
   :group 'eglot-ltex)
 
 (defcustom eglot-ltex-server-path ""
