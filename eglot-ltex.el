@@ -61,6 +61,7 @@ https://github.com/valentjn/ltex-ls"
     (LaTeX-mode :language-id "latex") ;; AUCTeX
     (markdown-mode :language-id "markdown")
     (rst-mode :language-id "restructuredtext")
+    (mu4e-compose-mode :language-id "plaintext")
     (text-mode :language-id "plaintext"))
   "List of major mode that work with LanguageTool."
   :type '(list symbol)
