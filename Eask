@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "eglot-ltex"
          "0.1.0"
          "Eglot Clients for LTEX")
